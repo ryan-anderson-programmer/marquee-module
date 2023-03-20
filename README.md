@@ -93,28 +93,36 @@ This example demonstrates how to display a marquee that contains one author.
 Show-Marquee -Title 'Project' -Author 'John Doe' -FinePrint 'Copyright (C) 2023 John Doe'
 ```
 
-##### Example 2: Show a Marquee That Contains Multiple Authors
+##### Example 2: Show a Marquee That Contains Two Authors
 
-This example demonstrates how to display a marquee that contains multiple authors.
+This example demonstrates how to display a marquee that contains two authors.
 
 ```powershell
 Show-Marquee -Title 'Project' -Author 'John Doe', 'Jane Doe' -FinePrint 'Copyright (C) 2023 John and Jane Doe'
 ```
 
-##### Example 3: Show a Marquee That Contains a Description
+##### Example 3: Show a Marquee That Contains Multiple Authors
+
+This example demonstrates how to display a marquee that contains multiple authors.
+
+```powershell
+Show-Marquee -Title 'Project' -Author 'John Doe', 'Jane Doe', 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 John and Jane Doe'
+```
+
+##### Example 4: Show a Marquee That Contains a Description
 
 This example demonstrates how to display a marquee with a description.
 
 ```powershell
-Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or script. A title, authors, and fine print are displayed within a box when this command is invoked.' -MaximumDescriptionLength 50
+Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or a script. A title, authors, and fine print are displayed within a box when this command is invoked.' -MaximumDescriptionLength 50
 ```
 
-##### Example 4: Use an Alias to Show a Marquee
+##### Example 5: Use an Alias to Show a Marquee
 
 This example demonstrates how to use the exported alias to show a marquee.
 
 ```powershell
-sm -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a module for displaying information about a module or script. A title, authors, and fine print are displayed within a box when this module is invoked.' -MaximumDescriptionLength 50
+sm -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a module for displaying information about a module or a script. A title, authors, and fine print are displayed within a box when this module is invoked.' -MaximumDescriptionLength 50
 ```
 
 #### Remarks About Show-Marquee
