@@ -106,7 +106,7 @@ Show-Marquee -Title 'Project' -Author 'John Doe', 'Jane Doe' -FinePrint 'Copyrig
 This example demonstrates how to display a marquee with a description.
 
 ```powershell
-Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or script. A title, authors, and fine print are displayed within a box when this command is invoked.' -MaximumDescriptionLength 50
+Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or a script. A title, authors, and fine print are displayed within a box when this command is invoked.' -MaximumDescriptionLength 50
 ```
 
 ##### Example 4: Use an Alias to Show a Marquee
@@ -114,7 +114,7 @@ Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrin
 This example demonstrates how to use the exported alias to show a marquee.
 
 ```powershell
-sm -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a module for displaying information about a module or script. A title, authors, and fine print are displayed within a box when this module is invoked.' -MaximumDescriptionLength 50
+sm -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a module for displaying information about a module or a script. A title, authors, and fine print are displayed within a box when this module is invoked.' -MaximumDescriptionLength 50
 ```
 
 #### Remarks About Show-Marquee
