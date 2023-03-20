@@ -114,10 +114,15 @@ function Show-Marquee {
         $MaximumDescriptionLength = 128
     )
 
-    $authorCsv = ($Author -join ', ')
+    if ($Author.Length -eq 2) {
+        $authorCsv = ($Author -join ' and ')
+    }
+    else {
+        $authorCsv = ($Author -join ', ')
+    }
 
     $titleLength = $Title.Length
-    $authorLength = $authorCsv.Length + 3 # length of each item in a collection of m items + (m items - 1 item) * length of a comma and a space + length of 'By '
+    $authorLength = $authorCsv.Length + 3 # length of CSV list of authors + length of 'By '
     $finePrintLength = $FinePrint.Length
     $descriptionLength = $Description.Length
 
