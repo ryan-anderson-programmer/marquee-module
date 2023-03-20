@@ -59,7 +59,7 @@ InModuleScope 'MarqueeModule' {
 
             $null = Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson'
 
-            It 'Calls Write-Information 9 times to print information about a module or script' {
+            It 'Calls Write-Information 9 times to print information about a module or a script' {
                 Assert-MockCalled Write-Information -Exactly 9
             }
         }
@@ -67,9 +67,9 @@ InModuleScope 'MarqueeModule' {
         Context 'When description parameters are used and the maximum length of a provided description is less than its actual length' {
             Mock Write-Information { }
 
-            $null = Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or script. A title, authors, and fine print are displayed within a box when this command is invoked.' -MaximumDescriptionLength 50
+            $null = Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or a script. A title, authors, and fine print are displayed within a box when this command is invoked.' -MaximumDescriptionLength 50
 
-            It 'Calls Write-Information 14 times to print information about a module or script' {
+            It 'Calls Write-Information 14 times to print information about a module or a script' {
                 Assert-MockCalled Write-Information -Exactly 14
             }
         }
@@ -77,9 +77,9 @@ InModuleScope 'MarqueeModule' {
         Context 'When an argument for a description is provided, an argument for the maximum length of that description is not provided, and the actual length of that description is greater than the maximum length' {
             Mock Write-Information { }
 
-            $null = Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or script. A title, authors, and fine print are displayed within a box when this command is invoked.'
+            $null = Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or a script. A title, authors, and fine print are displayed within a box when this command is invoked.'
 
-            It 'Calls Write-Information 12 times to print information about a module or script' {
+            It 'Calls Write-Information 12 times to print information about a module or a script' {
                 Assert-MockCalled Write-Information -Exactly 12
             }
         }
@@ -87,10 +87,30 @@ InModuleScope 'MarqueeModule' {
         Context 'When an argument for a description is provided and its actual length is equal to the maximum length' {
             Mock Write-Information { }
 
-            $null = Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or script. A title, authors, and fine print are displayed within a box when this command is invoked.' -MaximumDescriptionLength 160
+            $null = Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or a script. A title, authors, and fine print are displayed within a box when this command is invoked.' -MaximumDescriptionLength 162
 
-            It 'Calls Write-Information 11 times to print information about a module or script' {
+            It 'Calls Write-Information 11 times to print information about a module or a script' {
                 Assert-MockCalled Write-Information -Exactly 11
+            }
+        }
+
+        Context 'When two authors are provided' {
+            Mock Write-Information { }
+
+            $null = Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson', 'John Doe' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or a script. A title, authors, and fine print are displayed within a box when this command is invoked.'
+
+            It 'Calls Write-Information 12 times to print information about a module or a script' {
+                Assert-MockCalled Write-Information -Exactly 12
+            }
+        }
+
+        Context 'When more than two authors are provided' {
+            Mock Write-Information { }
+
+            $null = Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson', 'John Doe', 'Jane Doe' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or a script. A title, authors, and fine print are displayed within a box when this command is invoked.'
+
+            It 'Calls Write-Information 12 times to print information about a module or a script' {
+                Assert-MockCalled Write-Information -Exactly 12
             }
         }
     }
