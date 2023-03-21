@@ -21,3 +21,4 @@ jobs:
           ./utilities/Deploy.ps1 -Clean -Test
           Write-Information -MessageData ([string]::Format("The output for build '{0}' was generated. Below is the content for the current deployment.", $env:BUILD_VERSION)) -InformationAction Continue
           Get-ChildItem -Path './deployment/marqueemodule' -Recurse
+          Publish-Module -Path './deployment/marqueemodule' -NuGetApiKey $env:NUGET_KEY -Verbose
