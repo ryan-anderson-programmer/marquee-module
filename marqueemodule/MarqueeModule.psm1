@@ -86,7 +86,7 @@ function Get-MarqueeContentRow {
 
     .EXAMPLE
     # Create a marquee that contains a description.
-    Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or script. A title, authors, and fine print are displayed within a box when this command is invoked.' -MaximumDescriptionLength 50
+    Show-Marquee -Title 'Marquee Module v0.1.0' -Author 'Ryan E. Anderson' -FinePrint 'Copyright (C) 2023 Ryan E. Anderson' -Description 'This is a command for displaying information about a module or a script. A title, authors, and fine print are displayed within a box when this command is invoked.' -MaximumDescriptionLength 50
 
     .NOTES
     All provided information is literal and will not be trimmed. Words within the description will not wrap; they will be broken at the maximum length.
