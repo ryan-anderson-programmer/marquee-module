@@ -29,9 +29,9 @@
 ################################################
 
 if git rev-parse --git-dir > /dev/null 2>&1; then
-    echo "A Git repository has been initialized at this location ($(pwd))."
+    echo "A Git repository for MarqueeModule has been initialized at this location ($(pwd))."
 else
-    echo "A Git repository has not been initialized at this location ($(pwd))."
+    echo "A Git repository for MarqueeModule has not been initialized at this location ($(pwd))."
 fi;
 
 read -p 'Press any key to continue launching Git Bash...'
