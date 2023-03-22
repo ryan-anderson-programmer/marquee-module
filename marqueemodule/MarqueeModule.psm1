@@ -115,7 +115,7 @@ function Show-Marquee {
     )
 
     if ($Author.Length -eq 2) {
-        $authorCsv = ($Author -join ' and ')
+        $authorCsv = [string]::Format('{0} and {1}', $Author[0], $Author[1])
     }
     else {
         $authorCsv = ($Author -join ', ')
@@ -142,7 +142,7 @@ function Show-Marquee {
 
     $emptyRowFormat = '{0}{1,' + $verticalBorderPosition + '}'
 
-    $authorByline = ([string]::Format('By {0}', $authorCsv))
+    $authorByline = [string]::Format('By {0}', $authorCsv)
 
     Write-Information -MessageData $horizontalBorder -InformationAction Continue
     Write-Information -MessageData (Get-MarqueeEmptyRow -Format $emptyRowFormat) -InformationAction Continue
@@ -150,7 +150,7 @@ function Show-Marquee {
     Write-Information -MessageData (Get-MarqueeEmptyRow -Format $emptyRowFormat) -InformationAction Continue
 
     if ($PSBoundParameters.ContainsKey('Description')) {
-        $lineTokens = $Description -split ([string]::Format('(.{{{0}}})', $maximumLength)) | Where-Object { $_ }
+        $lineTokens = $Description -Split ([string]::Format('(.{{{0}}})', $maximumLength)) | Where-Object { $_ }
 
         if ($lineTokens -is 'System.String') {
             $lineTokens = @($Description)
