@@ -35,7 +35,7 @@ function Get-MarqueeEmptyRow {
         [string]
         $Format
     )
-    return ([string]::Format($Format, '#', '#'))
+    return [string]::Format($Format, '#', '#')
 }
 
 function Get-MarqueeContentRow {
@@ -51,7 +51,7 @@ function Get-MarqueeContentRow {
         [int]
         $MaximumLength
     )
-    return ([string]::Format('{0,-5}{1}{2,' + ($MaximumLength - $ContentLength + 5) + '}', '#', $Content, '#'))
+    return [string]::Format('{0,-5}{1}{2,' + ($MaximumLength - $ContentLength + 5) + '}', '#', $Content, '#')
 }
 
 <#
@@ -118,7 +118,7 @@ function Show-Marquee {
         $authorCsv = [string]::Format('{0} and {1}', $Author[0], $Author[1])
     }
     else {
-        $authorCsv = ($Author -join ', ')
+        $authorCsv = $Author -join ', '
     }
 
     $titleLength = $Title.Length
