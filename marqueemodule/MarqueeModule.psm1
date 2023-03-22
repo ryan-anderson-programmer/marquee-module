@@ -35,7 +35,7 @@ function Get-MarqueeEmptyRow {
         [string]
         $Format
     )
-    return ([string]::Format($Format, '#', '#'))
+    return [string]::Format($Format, '#', '#')
 }
 
 function Get-MarqueeContentRow {
@@ -51,7 +51,7 @@ function Get-MarqueeContentRow {
         [int]
         $MaximumLength
     )
-    return ([string]::Format('{0,-5}{1}{2,' + ($MaximumLength - $ContentLength + 5) + '}', '#', $Content, '#'))
+    return [string]::Format('{0,-5}{1}{2,' + ($MaximumLength - $ContentLength + 5) + '}', '#', $Content, '#')
 }
 
 <#
@@ -115,10 +115,10 @@ function Show-Marquee {
     )
 
     if ($Author.Length -eq 2) {
-        $authorCsv = ($Author -join ' and ')
+        $authorCsv = [string]::Format('{0} and {1}', $Author[0], $Author[1])
     }
     else {
-        $authorCsv = ($Author -join ', ')
+        $authorCsv = $Author -join ', '
     }
 
     $titleLength = $Title.Length
@@ -142,7 +142,7 @@ function Show-Marquee {
 
     $emptyRowFormat = '{0}{1,' + $verticalBorderPosition + '}'
 
-    $authorByline = ([string]::Format('By {0}', $authorCsv))
+    $authorByline = [string]::Format('By {0}', $authorCsv)
 
     Write-Information -MessageData $horizontalBorder -InformationAction Continue
     Write-Information -MessageData (Get-MarqueeEmptyRow -Format $emptyRowFormat) -InformationAction Continue
