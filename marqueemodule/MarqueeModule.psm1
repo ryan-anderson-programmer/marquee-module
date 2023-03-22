@@ -29,16 +29,18 @@
 Set-StrictMode -Version Latest
 
 function Get-MarqueeEmptyRow {
+    [OutputType([string])]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
         [string]
         $Format
     )
-    return [string]::Format($Format, '#', '#')
+    [string]::Format($Format, '#', '#')
 }
 
 function Get-MarqueeContentRow {
+    [OutputType([string])]
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
@@ -51,7 +53,7 @@ function Get-MarqueeContentRow {
         [int]
         $MaximumLength
     )
-    return [string]::Format('{0,-5}{1}{2,' + ($MaximumLength - $ContentLength + 5) + '}', '#', $Content, '#')
+    [string]::Format('{0,-5}{1}{2,' + ($MaximumLength - $ContentLength + 5) + '}', '#', $Content, '#')
 }
 
 <#
