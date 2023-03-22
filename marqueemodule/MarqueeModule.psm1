@@ -150,7 +150,7 @@ function Show-Marquee {
     Write-Information -MessageData (Get-MarqueeEmptyRow -Format $emptyRowFormat) -InformationAction Continue
 
     if ($PSBoundParameters.ContainsKey('Description')) {
-        $lineTokens = $Description -Split ([string]::Format('(.{{{0}}})', $maximumLength)) | Where-Object { $_ }
+        $lineTokens = $Description -split ([string]::Format('(.{{{0}}})', $maximumLength)) | Where-Object { $_ }
 
         if ($lineTokens -is 'System.String') {
             $lineTokens = @($Description)
